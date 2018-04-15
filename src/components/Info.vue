@@ -121,7 +121,11 @@ export default {
         //获取助力数
         this.$http.get(this.api+'/vote/user/assistance')
             .then((response) => {
-                this.mycheer = response.data.assistance;
+                if (response.data.assistance != null) {
+                    this.mycheer = response.data.assistance;
+                } else {
+                    this.mycheer = 0;
+                }
             })
             .catch((error) => {
                 console.log(error);

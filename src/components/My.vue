@@ -67,7 +67,7 @@ export default {
         return {
             nickname: "我是",
             headImgUrl: "",
-            cheer_num: 0,
+            cheer_num: "",
             history: [],
             cheer_classId: 0,
             cheer_groupId: 0,
@@ -88,7 +88,11 @@ export default {
             //获取助力数
             this.$http.get(this.api+'/vote/user/assistance')
                 .then((response) => {
-                    this.cheer_num = response.data.assistance;
+                    if (response.data.assistance != null) {
+                        this.cheer_num = response.data.assistance;
+                    } else {
+                        this.cheer_num = 0;
+                    }
                 })
                 .catch((error) => {
                     console.log(error);
@@ -168,7 +172,11 @@ export default {
             //获取助力数
             this.$http.get(this.api+'/vote/user/assistance')
                 .then((response) => {
-                    this.cheer_num = response.data.assistance;
+                    if (response.data.assistance != null) {
+                        this.cheer_num = response.data.assistance;
+                    } else {
+                        this.cheer_num = 0;
+                    }
                 })
                 .catch((error) => {
                     console.log(error);

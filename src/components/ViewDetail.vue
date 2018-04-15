@@ -81,7 +81,7 @@
                 为拉拉队投票
             </p>
             <input type="text" class="cheer_to_num" placeholder="请输入投票数" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
-            <span v-if="cheerNum">我的可用投票数：<i class="red">{{cheerNum}}</i></span>
+            <span v-if="cheerNum >= 0">我的可用投票数：<i class="red">{{cheerNum}}</i></span>
             <div class="confirm" @click="send">
 
             </div>
@@ -90,7 +90,7 @@
             <p>
                 投票成功
             </p>
-            <span v-if="cheerNum">我的可用投票数：<i class="red">{{cheerNum}}</i></span>
+            <span v-if="cheerNum >= 0">我的可用投票数：<i class="red">{{cheerNum}}</i></span>
             <div class="confirm2" @click="closeAlert">
 
             </div>
@@ -148,7 +148,11 @@ export default {
         //获取票数
         this.$http.get(this.api+'/vote/user/assistance')
             .then((response) => {
-                this.cheerNum = response.data.assistance;
+                if (response.data.assistance != null) {
+                    this.cheerNum = response.data.assistance;
+                } else {
+                    this.cheerNum = 0;
+                }
             })
             .catch((error) => {
                 console.log(error);
@@ -182,6 +186,13 @@ export default {
 
             if (cheerToNum.value == "" || parseInt(cheerToNum.value) == 0) {
                 alert("输入不合法");
+                cheerToNum.value = "";
+                cheerAlert.className = "cheerAlert no";
+                shadow.className = "shadow no";
+                return false;
+            }
+            if (cheerToNum.value > this.cheerNum) {
+                alert("投票数超过您拥有的票数！");
                 cheerToNum.value = "";
                 cheerAlert.className = "cheerAlert no";
                 shadow.className = "shadow no";

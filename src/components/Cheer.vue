@@ -200,7 +200,6 @@ export default {
                 this.cheer13 = "";
                 return 0;
             } else {
-                console.log(this.cheerNum);
                 return isNaN(this.cheerNum - this.totle_num) ? 0 : (this.cheerNum - this.totle_num);
             }
         }
@@ -227,6 +226,10 @@ export default {
 
             if (this.free_num < 0) {
                 alert("剩余可投票数不够，请重新分配！");
+                return false;
+            }
+            if (this.totle_num == 0) {
+                alert("请选择拉拉队投票");
                 return false;
             }
 

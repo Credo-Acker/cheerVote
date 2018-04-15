@@ -20,7 +20,7 @@
                             <img src="../assets/start_cheer.png">
                         </router-link>
                     </div>
-                    <div class="my_cheer" v-if="my_cheer_num != null">
+                    <div class="my_cheer" v-if="my_cheer_num >= 0">
                         我的投票数：{{my_cheer_num}}
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                         </router-link>
                     </div>
                     <router-link to="/my">
-                        <div class="my_cheer" v-if="my_cheer_num">
+                        <div class="my_cheer" v-if="my_cheer_num >= 0">
                             我的投票数：{{my_cheer_num}}
                         </div>
                     </router-link>
@@ -82,7 +82,7 @@ export default {
     name: 'Answer',
     data() {
         return {
-            my_cheer_num: null,
+            my_cheer_num: "",
             hour1: 17,
             hour2: 8,
             can: true,
@@ -93,7 +93,11 @@ export default {
         //获取助力数
         this.$http.get(this.api+'/vote/user/assistance')
             .then((response) => {
-                this.my_cheer_num = response.data.assistance;
+                if (response.data.assistance != null) {
+                    this.my_cheer_num = response.data.assistance;
+                } else {
+                    this.my_cheer_num = 0;
+                }
             })
             .catch((error) => {
                 console.log(error);
