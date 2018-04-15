@@ -38,12 +38,22 @@ export default {
         if (this.hour >= 17) {
             this.$http.get(this.api+'/vote/user/startPage')
                 .then((response) => {
-                    this.da = response.data.todayNum;
-                    this.dachao = response.data.todayNumRank;
-                    this.dui = response.data.rightNum;
-                    this.duichao = response.data.rightNumRank;
-                    this.zhu = response.data.assistance;
-                    this.zhuchao = response.data.assistanceRank;
+                    if (response.data.todayNum) {
+                        this.da = response.data.todayNum;
+                        this.dachao = response.data.todayNumRank;
+                        this.dui = response.data.rightNum;
+                        this.duichao = response.data.rightNumRank;
+                        this.zhu = response.data.assistance;
+                        this.zhuchao = response.data.assistanceRank;
+                    } else {
+                        this.da = 0;
+                        this.dachao = "0%";
+                        this.dui = 0;
+                        this.duichao = "0%";
+                        this.zhu = 0;
+                        this.zhuchao = "0%";
+                    }
+
                 })
                 .catch((error) => {
                     console.log(error);

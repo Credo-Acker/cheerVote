@@ -21,7 +21,7 @@
                 <span class="wode">我的投票</span>
                 <span class="suoshu">所属战队</span>
                 <span class="dangqian">当前得票数</span>
-                <ul class="ul_list">
+                <ul class="ul_list" v-if="history">
                     <li v-for="(item, index) in history">
                         <span class="li_xueyuan" @click="cheerIt(item.classId, item.groupId)" :classId="item.classId" :groupId="item.groupId" :key="index">{{item.className}}</span>
                         <span class="li_wode">{{item.assistance}}</span>
@@ -65,7 +65,7 @@ export default {
     name: 'My',
     data() {
         return {
-            nickname: "我是",
+            nickname: "",
             headImgUrl: "",
             cheer_num: "",
             history: [],
@@ -79,8 +79,10 @@ export default {
             //获取自己的信息
             this.$http.get(this.api+'/vote/user/info')
                 .then((response) => {
-                    this.nickname = response.data.nickname;
-                    this.headImgUrl = response.data.headImgUrl;
+                    if (response.data.nickName) {
+                        this.nickname = response.data.nickName;
+                        this.headImgUrl = response.data.headImgUrl;
+                    }
                 })
                 .catch((error) => {
                     console.log(error);
@@ -125,6 +127,14 @@ export default {
             let cheerAlert2 = document.querySelector('.cheerAlert2');
             let shadow = document.querySelector('.shadow');
 
+            if (this.num > this.cheer_num) {
+                alert("投票数超过您拥有的票数");
+                this.num = "";
+                cheerAlert.className = "cheerAlert no";
+                shadow.className = "shadow no";
+                return false;
+            }
+
             if (this.num == "" || parseInt(this.num) == 0 || parseInt(this.num) == NaN) {
                 alert("输入不合法");
                 this.num = "";
@@ -160,10 +170,6 @@ export default {
                 .catch((err) => {
                     console.log(err);
                 });
-            //发送成功后执行下面的！！！！！
-            cheerAlert.className = "cheerAlert no";
-            cheerAlert2.className = "cheerAlert2";
-            cheerToNum.value = "";
         },
         closeAlert: function () {
             let cheerAlert2 = document.querySelector('.cheerAlert2');

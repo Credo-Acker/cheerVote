@@ -20,7 +20,7 @@
                 </div>
                 <div class="intro">
                     <p class="p_intro_title">
-                        啦啦队简介：
+                        拉拉队简介：
                     </p>
                     <p class="p_intro">
                         {{information.introduce}}
@@ -32,7 +32,7 @@
             </div>
             <div class="video">
                 <div class="video_title">
-                    <img src="../assets/log.png"><span>啦啦队宣传视频</span>
+                    <img src="../assets/log.png"><span>拉拉队宣传视频</span>
                 </div>
                 <div class="video_main">
                     <iframe :src="'//'+information.video" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="100%">  </iframe>
@@ -43,7 +43,7 @@
             </div>
             <div class="picture">
                 <div class="picture_title">
-                    <img src="../assets/log.png"><span>啦啦队宣传图片</span>
+                    <img src="../assets/log.png"><span>拉拉队宣传图片</span>
                 </div>
                 <ul class="picture_main">
                     <li class="picture_item" v-for="(item, index) in duiyuan" @click="openImg(index)" :key="index">
