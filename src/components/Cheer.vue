@@ -157,6 +157,7 @@ export default {
                     this["cheer" + i] = 0;
                 }
             }
+
             if (isNaN(this.cheer1) || isNaN(this.cheer2) || isNaN(this.cheer3) || isNaN(this.cheer4) || isNaN(this.cheer5) || isNaN(this.cheer6) || isNaN(this.cheer7) || isNaN(this.cheer8) || isNaN(this.cheer9) || isNaN(this.cheer10) || isNaN(this.cheer11) || isNaN(this.cheer12) || isNaN(this.cheer13)) {
                 alert("输入不合法，请重新输入！");
                 this.cheer1 = "";
@@ -181,8 +182,9 @@ export default {
         },
         //还剩多少投票数
         free_num: function () {
-            if ((this.cheerNum - (isNaN(this.totle_num) ? 0: this.totle_num)) < 0) {
+            if ((this.cheerNum - this.totle_num) < 0) {
                 alert("剩余可投票数不够，请重新分配！");
+                console.log(this.cheerNum);
                 this.cheer1 = "";
                 this.cheer2 = "";
                 this.cheer3 = "";
@@ -198,7 +200,8 @@ export default {
                 this.cheer13 = "";
                 return 0;
             } else {
-                return (this.cheerNum - (isNaN(this.totle_num) ? 0: this.totle_num));
+                console.log(this.cheerNum);
+                return isNaN(this.cheerNum - this.totle_num) ? 0 : (this.cheerNum - this.totle_num);
             }
         }
     },
@@ -206,7 +209,9 @@ export default {
         //获取数据：我的助力数
         this.$http.get(this.api+'/vote/user/assistance')
             .then((response) => {
-                this.cheerNum = response.data.assistance;
+                if (response.data.assistance) {
+                    this.cheerNum = response.data.assistance;
+                }
             })
             .catch((error) => {
                 console.log(error);
