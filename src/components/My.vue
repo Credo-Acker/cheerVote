@@ -158,7 +158,6 @@ export default {
                 "nonce": nonce,
                 "signature": signature
             };
-            alert(data);
             //发送助力数
             this.$http.post(this.api+'/vote/user/cheer/distance', {
                     params: params
@@ -181,7 +180,6 @@ export default {
                 })
                 .catch((err) => {
                     console.log(err);
-                    alert(err);
                 });
         },
         closeAlert: function () {
