@@ -98,7 +98,7 @@
         </div>
         <div class="cheerAlert no">
             <p>
-                为拉拉队投票
+                为{{choose_xueyuan}}投票
             </p>
             <input type="text" class="cheer_to_num" placeholder="请输入投票数" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" v-model="cheer_to_num">
             <span>我的可用投票数：<i class="red">{{free_num}}</i></span>
@@ -146,6 +146,7 @@ export default {
             cheer13: "",
             final: [],
             cheer_to_num: "",
+            choose_xueyuan: "",
             api: "https://wx.yyeke.com/cheer_vote"
         }
     },
@@ -299,10 +300,12 @@ export default {
             }
         },
         cheervote: function (which) {
+            let span = document.querySelectorAll('.span_xueyuan');
             let cheerAlert = document.querySelector('.cheerAlert');
             let shadow = document.querySelector('.shadow');
             let cheerToNum = document.querySelector('.cheer_to_num');
 
+            this.choose_xueyuan = span[which-1].innerHTML;
             this.now = which;
             cheerAlert.className = "cheerAlert";
             shadow.className = "shadow";
