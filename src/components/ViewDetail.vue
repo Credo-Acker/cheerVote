@@ -35,8 +35,8 @@
                     <img src="../assets/log.png"><span>拉拉队宣传视频</span>
                 </div>
                 <div class="video_main">
-                    <!-- <iframe :src="'//'+information.video" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="100%">  </iframe> -->
-                    <video :src="information.video" controls preload width="100%" height="100%"></video>
+                    <iframe v-if="ios" :src="'//'+video" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="100%">  </iframe>
+                    <video v-if="android" :src="video" controls preload width="100%" height="100%"></video>
                 </div>
             </div>
             <div class="division">
@@ -112,12 +112,29 @@ export default {
             cheerNum: "",
             duiyuan: [],
             duiyuanLength: 0,
+            video_List: {
+                "通信学院": "tongxin.mp4",
+                "计算机科学与技术学院": "jike.mp4",
+                "自动化学院": "zidong.mp4",
+                "先进制造工程学院": "xianjin.mp4",
+                "光电工程学院/国际半导体学院": "guangdian.mp4",
+                "软件工程学院": "ruanjian.mp4",
+                "生物信息学院": "shengwu.mp4",
+                "理学院": "li.mp4",
+                "经济管理学院": "jingguan.mp4",
+                "传媒艺术学院": "chuanmei.mp4",
+                "外国语学院": "waiguo.mp4",
+                "国际学院": "guoji.mp4",
+                "网络空间安全与信息法学院": "anfa.mp4"
+            },
+            ios: false,
+            android: false,
+            video: "",
             api: "https://wx.yyeke.com/cheer_vote"
         }
     },
     created() {
         this.classid = this.$route.params.classid;
-
         //获取详情页数据
         this.$http.get(this.api+'/vote/user/cheer_info/main', {
                 params: {
@@ -129,6 +146,12 @@ export default {
                 this.slides.push(this.information.playImg1);
                 this.slides.push(this.information.playImg2);
                 this.slides.push(this.information.playImg3);
+                this.isWeiXin();
+                if (this.ios) {
+                    this.video = "http://wx.yyeke.com/nodejs/cheerVote/video/" + this.video_List[response.data.className];
+                } else if (this.android) {
+                    this.video = this.information.video;
+                }
             })
             .catch((error) => {
                 console.log(error);
@@ -241,6 +264,22 @@ export default {
 
             cheerAlert2.className = "cheerAlert2 no";
             shadow.className = "shadow no";
+        },
+        isWeiXin: function () {
+            let ua = window.navigator.userAgent.toLowerCase();
+
+        	if (ua.match(/iphone/i) == 'iphone') {
+                return 1;
+            }
+            if (ua.match(/android/i) == 'android') {
+                return 2;
+            }
+
+            if (this.isWeiXin() == 1) {
+                this.ios = true;
+            } else if (this.isWeiXin() == 2) {
+                this.android = true;
+            }
         }
     }
 }
