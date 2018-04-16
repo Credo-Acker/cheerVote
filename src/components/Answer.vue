@@ -1,6 +1,5 @@
 <template>
     <div class="answer">
-        <!-- 注意！！！！！！now()函数！！ -->
         <div v-if="now()">
             <div v-if="can">
                 <div class="banner">
@@ -83,7 +82,7 @@ export default {
     data() {
         return {
             my_cheer_num: "",
-            hour1: 24,
+            hour1: 24,  //19
             hour2: 8,
             can: true,
             api: "https://wx.yyeke.com/cheer_vote"

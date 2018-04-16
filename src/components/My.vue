@@ -42,7 +42,7 @@
             <p>
                 为拉拉队投票
             </p>
-            <input type="text" class="cheer_to_num" placeholder="请输入投票数" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" v-model="num">
+            <input type="text" class="cheer_to_num" placeholder="请输入投票数" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
             <span>我的可用投票数：<i class="red">{{cheer_num}}</i></span>
             <div class="confirm" @click="send">
 
@@ -71,7 +71,6 @@ export default {
             history: [],
             cheer_classId: 0,
             cheer_groupId: 0,
-            num: "",
             api: "https://wx.yyeke.com/cheer_vote"
         }
     },
@@ -127,17 +126,16 @@ export default {
             let cheerAlert2 = document.querySelector('.cheerAlert2');
             let shadow = document.querySelector('.shadow');
 
-            if (this.num > this.cheer_num) {
-                alert("投票数超过您拥有的票数");
-                this.num = "";
+            if (cheerToNum.value == "" || parseInt(cheerToNum.value) == 0) {
+                alert("输入不合法");
+                cheerToNum.value = "";
                 cheerAlert.className = "cheerAlert no";
                 shadow.className = "shadow no";
                 return false;
             }
-
-            if (this.num == "" || parseInt(this.num) == 0 || parseInt(this.num) == NaN) {
-                alert("输入不合法");
-                this.num = "";
+            if (cheerToNum.value > this.cheerNum) {
+                alert("投票数超过您拥有的票数！");
+                cheerToNum.value = "";
                 cheerAlert.className = "cheerAlert no";
                 shadow.className = "shadow no";
                 return false;
@@ -146,7 +144,7 @@ export default {
             let data = JSON.stringify({
                 "data": [{
                     classId: this.cheer_classId,
-                    num: this.num,
+                    num: parseInt(cheerToNum.value),
                     groupId: this.cheer_groupId
                 }]
             });
@@ -165,9 +163,6 @@ export default {
                     params: params
                 })
                 .then((response) => {
-                    cheerAlert.className = "cheerAlert no";
-                    cheerAlert2.className = "cheerAlert2";
-                    cheerToNum.value = "";
                     this.$http.get(this.api+'/vote/user/assistance')
                         .then((response) => {
                             if (response.data.assistance != null) {
@@ -179,6 +174,9 @@ export default {
                         .catch((error) => {
                             console.log(error);
                         });
+                    cheerAlert.className = "cheerAlert no";
+                    cheerAlert2.className = "cheerAlert2";
+                    cheerToNum.value = "";
                 })
                 .catch((err) => {
                     console.log(err);
