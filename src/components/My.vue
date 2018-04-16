@@ -158,12 +158,12 @@ export default {
                 "nonce": nonce,
                 "signature": signature
             };
+            alert(params);
             //发送助力数
             this.$http.post(this.api+'/vote/user/cheer/distance', {
                     params: params
                 })
                 .then((response) => {
-                    alert("OK");
                     this.$http.get(this.api+'/vote/user/assistance')
                         .then((response) => {
                             if (response.data.assistance != null) {
