@@ -163,6 +163,7 @@ export default {
                     params: params
                 })
                 .then((response) => {
+                    alert("OK");
                     this.$http.get(this.api+'/vote/user/assistance')
                         .then((response) => {
                             if (response.data.assistance != null) {
