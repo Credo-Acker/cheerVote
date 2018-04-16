@@ -268,7 +268,6 @@ export default {
                             this.cheerNum = response.data.assistance;
                             cheerAlert2.className = "cheerAlert2";
                             shadow.className = "shadow";
-
                         })
                         .catch((error) => {
                             console.log(error);

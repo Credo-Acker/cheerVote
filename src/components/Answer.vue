@@ -83,7 +83,7 @@ export default {
     data() {
         return {
             my_cheer_num: "",
-            hour1: 17,
+            hour1: 24,
             hour2: 8,
             can: true,
             api: "https://wx.yyeke.com/cheer_vote"

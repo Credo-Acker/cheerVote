@@ -188,7 +188,6 @@ export default {
         openImg: function (index) {
             let bigImg = document.querySelector('.bigImg');
             this.currentSlide = index;
-            console.log(index)
             this.$refs.swiper.slideTo(index);
             bigImg.className = 'bigImg';
         },
@@ -245,6 +244,17 @@ export default {
                     params: params
                 })
                 .then((response) => {
+                    this.$http.get(this.api+'/vote/user/assistance')
+                        .then((response) => {
+                            if (response.data.assistance != null) {
+                                this.cheerNum = response.data.assistance;
+                            } else {
+                                this.cheerNum = 0;
+                            }
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                        });
                     cheerAlert.className = "cheerAlert no";
                     cheerAlert2.className = "cheerAlert2";
                     cheerToNum.value = "";
@@ -252,11 +262,6 @@ export default {
                 .catch((err) => {
                     console.log(err);
                 });
-            //发送成功后执行下面的！！！！！
-            cheerAlert.className = "cheerAlert no";
-            cheerAlert2.className = "cheerAlert2";
-            cheerToNum.value = "";
-
         },
         closeAlert: function () {
             let cheerAlert2 = document.querySelector('.cheerAlert2');

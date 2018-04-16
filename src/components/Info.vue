@@ -109,7 +109,7 @@ export default {
             first: null,
             second: null,
             third: null,
-            next: null,
+            next: [],
             luckyOnes: [],
             timeNow: 0,
             classNames: [],
