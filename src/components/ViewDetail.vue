@@ -71,7 +71,7 @@
                 <wc-slide v-for="(item, key) in duiyuan" :key="key">
                     <img :src="item.imgUrl">
                     <div class="description">
-                        {{item.name}}：{{item.description}}
+                        {{item.playerName}}：{{item.introduce}}
                         <span>{{key + 1}}/{{duiyuanLength}}</span>
                     </div>
                 </wc-slide>
