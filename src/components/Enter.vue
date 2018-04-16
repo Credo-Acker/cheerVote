@@ -24,11 +24,11 @@ export default {
         return {
             hour: 0,
             da: 0,
-            dachao: null,
+            dachao: "0%",
             dui: 0,
-            duichao: null,
+            duichao: "0%",
             zhu: 0,
-            zhuchao: null,
+            zhuchao: "0%",
             isEnter2: false,
             api: "https://wx.yyeke.com/cheer_vote"
         }
