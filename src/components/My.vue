@@ -133,13 +133,13 @@ export default {
                 shadow.className = "shadow no";
                 return false;
             }
-            if (cheerToNum.value > this.cheerNum) {
-                alert("投票数超过您拥有的票数！");
-                cheerToNum.value = "";
-                cheerAlert.className = "cheerAlert no";
-                shadow.className = "shadow no";
-                return false;
-            }
+            // if (cheerToNum.value > this.cheerNum) {
+            //     alert("投票数超过您拥有的票数！");
+            //     cheerToNum.value = "";
+            //     cheerAlert.className = "cheerAlert no";
+            //     shadow.className = "shadow no";
+            //     return false;
+            // }
 
             let data = JSON.stringify({
                 "data": [{
@@ -158,7 +158,7 @@ export default {
                 "nonce": nonce,
                 "signature": signature
             };
-            alert(params);
+            alert(data);
             //发送助力数
             this.$http.post(this.api+'/vote/user/cheer/distance', {
                     params: params
@@ -181,6 +181,7 @@ export default {
                 })
                 .catch((err) => {
                     console.log(err);
+                    alert(err);
                 });
         },
         closeAlert: function () {
