@@ -112,7 +112,7 @@
             </p>
             <div class="div_teams">
                 <ul class="teams">
-                    <li v-for="item in final" :key="item.groupId">
+                    <li v-for="(item,index) in final" :key="index">
                         {{item.groupName}}得票数：{{item.distance}}
                     </li>
                 </ul>

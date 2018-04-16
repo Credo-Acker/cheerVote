@@ -161,8 +161,13 @@ export default {
                 "signature": signature
             };
             //发送助力数
-            this.$http.post(this.api+'/vote/user/cheer/distance', params)
+            this.$http.post(this.api+'/vote/user/cheer/distance', {
+                    params: params
+                })
                 .then((response) => {
+                    cheerAlert.className = "cheerAlert no";
+                    cheerAlert2.className = "cheerAlert2";
+                    cheerToNum.value = "";
                     this.$http.get(this.api+'/vote/user/assistance')
                         .then((response) => {
                             if (response.data.assistance != null) {
@@ -174,9 +179,6 @@ export default {
                         .catch((error) => {
                             console.log(error);
                         });
-                    cheerAlert.className = "cheerAlert no";
-                    cheerAlert2.className = "cheerAlert2";
-                    cheerToNum.value = "";
                 })
                 .catch((err) => {
                     console.log(err);
