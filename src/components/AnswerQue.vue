@@ -191,7 +191,6 @@ export default {
                     answerD.className = "answerD answer_cover";
                     break;
             }
-            // this.$route.params.classid
         }
     }
 }
