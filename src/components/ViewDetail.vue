@@ -147,11 +147,11 @@ export default {
                 this.slides.push(this.information.playImg2);
                 this.slides.push(this.information.playImg3);
                 this.isWeiXin();
-                if (this.ios) {
-                    this.video = "http://wx.yyeke.com/nodejs/cheerVote/video/" + this.video_List[response.data.className];
-                } else if (this.android) {
-                    this.video = this.information.video;
-                }
+                // if (this.ios) {
+                //     this.video = "http://wx.yyeke.com/nodejs/cheerVote/video/" + this.video_List[response.data.className];
+                // } else if (this.android) {
+                //     this.video = this.information.video;
+                // }
             })
             .catch((error) => {
                 console.log(error);
@@ -273,18 +273,22 @@ export default {
         isWeiXin: function () {
             let ua = window.navigator.userAgent.toLowerCase();
 
-        	if (ua.match(/iphone/i) == 'iphone') {
+        	if (/iphone/i.test(ua)) {
+                this.ios = true;
+                this.android = false;
                 return 1;
             }
-            if (ua.match(/android/i) == 'android') {
+            if (/android/i.test(ua)) {
+                this.ios = false;
+                this.android = true;
                 return 2;
             }
 
-            if (this.isWeiXin() == 1) {
-                this.ios = true;
-            } else if (this.isWeiXin() == 2) {
-                this.android = true;
-            }
+            // if (this.isWeiXin() == 1) {
+            //     this.ios = true;
+            // } else if (this.isWeiXin() == 2) {
+            //     this.android = true;
+            // }
         }
     }
 }
