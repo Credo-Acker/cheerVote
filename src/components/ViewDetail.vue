@@ -35,7 +35,10 @@
                     <img src="../assets/log.png"><span>拉拉队宣传视频</span>
                 </div>
                 <div class="video_main">
-                    <iframe v-if="android == true" :src="'//'+video" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="100%">  </iframe>
+                    <div v-if="android == true">
+                        <iframe :src="video" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="100%">  </iframe>
+                    </div>
+
                     <video v-else-if="ios == true" :src="video" controls preload width="100%" height="100%"></video>
                     <video v-else-if="android == false && ios == false" :src="video" controls preload width="100%" height="100%"></video>
                 </div>
@@ -129,19 +132,19 @@ export default {
                 "网络空间安全与信息法学院": "anfa.mp4"
             },
             video_List2: {
-                "通信学院": "player.bilibili.com/player.html?aid=22178822&cid=36688856&page=9",
-                "计算机科学与技术学院": "player.bilibili.com/player.html?aid=22178822&cid=36688719&page=5",
-                "自动化学院": "player.bilibili.com/player.html?aid=22178822&cid=36688890&page=12",
-                "先进制造工程学院": "player.bilibili.com/player.html?aid=22178822&cid=36688886&page=11",
-                "光电工程学院/国际半导体学院": "player.bilibili.com/player.html?aid=22178822&cid=36688626&page=3",
-                "软件工程学院": "player.bilibili.com/player.html?aid=22178822&cid=36697216&page=13",
-                "生物信息学院": "player.bilibili.com/player.html?aid=22178822&cid=36688842&page=8",
-                "理学院": "player.bilibili.com/player.html?aid=22178822&cid=36688794&page=7",
-                "经济管理学院": "player.bilibili.com/player.html?aid=22178822&cid=36688789&page=6",
-                "传媒艺术学院": "player.bilibili.com/player.html?aid=22178822&cid=36688616&page=1",
-                "外国语学院": "player.bilibili.com/player.html?aid=22178822&cid=36688866&page=10",
-                "国际学院": "player.bilibili.com/player.html?aid=22178822&cid=36688664&page=4",
-                "网络空间安全与信息法学院": "player.bilibili.com/player.html?aid=22178822&cid=36688617&page=2"
+                "通信学院": "//player.bilibili.com/player.html?aid=22178822&cid=36688856&page=9",
+                "计算机科学与技术学院": "//player.bilibili.com/player.html?aid=22178822&cid=36688719&page=5",
+                "自动化学院": "//player.bilibili.com/player.html?aid=22178822&cid=36688890&page=12",
+                "先进制造工程学院": "//player.bilibili.com/player.html?aid=22178822&cid=36688886&page=11",
+                "光电工程学院/国际半导体学院": "//player.bilibili.com/player.html?aid=22178822&cid=36688626&page=3",
+                "软件工程学院": "//player.bilibili.com/player.html?aid=22178822&cid=36697216&page=13",
+                "生物信息学院": "//player.bilibili.com/player.html?aid=22178822&cid=36688842&page=8",
+                "理学院": "//player.bilibili.com/player.html?aid=22178822&cid=36688794&page=7",
+                "经济管理学院": "//player.bilibili.com/player.html?aid=22178822&cid=36688789&page=6",
+                "传媒艺术学院": "//player.bilibili.com/player.html?aid=22178822&cid=36688616&page=1",
+                "外国语学院": "//player.bilibili.com/player.html?aid=22178822&cid=36688866&page=10",
+                "国际学院": "//player.bilibili.com/player.html?aid=22178822&cid=36688664&page=4",
+                "网络空间安全与信息法学院": "//player.bilibili.com/player.html?aid=22178822&cid=36688617&page=2"
             },
             ios: false,
             android: false,
@@ -163,10 +166,10 @@ export default {
                 this.slides.push(this.information.playImg2);
                 this.slides.push(this.information.playImg3);
                 this.isWeiXin();
-                if (this.ios) {
+                if (this.android) {
+                    this.video = this.video_List2[response.data.className];
+                } else if (this.ios) {
                     this.video = "http://wx.yyeke.com/nodejs/cheerVote/video/" + this.video_List1[response.data.className];
-                } else if (this.android) {
-                    this.video = this.video_List2[response.data.clclassName];
                 } else {
                     this.video = this.video_List2[response.data.clclassName];
                 }
