@@ -35,7 +35,8 @@
                     <img src="../assets/log.png"><span>拉拉队宣传视频</span>
                 </div>
                 <div class="video_main">
-                    <iframe :src="'//'+information.video" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="100%">  </iframe>
+                    <!-- <iframe :src="'//'+information.video" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="100%">  </iframe> -->
+                    <video :src="information.video" controls preload width="100%" height="100%"></video>
                 </div>
             </div>
             <div class="division">
