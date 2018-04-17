@@ -158,7 +158,6 @@ export default {
         }
     },
     created() {
-        console.log(window.innerHeight);
         this.classid = this.$route.params.classid;
         //获取详情页数据
         this.$http.get(this.api+'/vote/user/cheer_info/main', {
