@@ -158,6 +158,7 @@ export default {
         }
     },
     created() {
+        console.log(window.innerHeight);
         this.classid = this.$route.params.classid;
         //获取详情页数据
         this.$http.get(this.api+'/vote/user/cheer_info/main', {
@@ -655,7 +656,7 @@ input:focus {
 .shadowimg {
     position: absolute;
     top: 50%;
-    left: 50%;
+    top: 50%;
     margin-top: -2.206rem;
     margin-left: -2.14rem;
     width: 4.28rem;
@@ -679,7 +680,8 @@ input:focus {
 
 .bigImg .wc-slide img {
     position: absolute;
-    top: 4.8rem;
+    top: 50%;
+    margin-top: -4.233rem;
     height: 6.76rem;
     width: 10rem;
 }
