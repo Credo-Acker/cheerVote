@@ -75,7 +75,12 @@
                 <wc-slide v-for="(item, key) in duiyuan" :key="key">
                     <img :src="item.imgUrl">
                     <div class="description">
-                        {{item.playerName}}：{{item.introduce}}
+                        <div class="description_title">
+                            {{item.playerName}}
+                        </div>
+                        <div class="description_cont">
+                            {{item.introduce}}
+                        </div>
                         <span>{{key + 1}}/{{duiyuanLength}}</span>
                     </div>
                 </wc-slide>
@@ -694,6 +699,24 @@ input:focus {
     font-size: 0.346rem;
     color: #ffffff;
     background: #000000;
+}
+
+.description_title {
+    position: relative;
+    display: inline-block;
+    color: #ffffff;
+    opacity: 0.9;
+    line-height: 0.7rem;
+}
+
+.description_cont {
+    position: relative;
+    display: inline-block;
+    line-height: 0.58rem;
+    width: 9.2rem;
+    margin: 0 auto;
+    word-break: break-all;
+    word-wrap:break-word;
 }
 
 .description span {
