@@ -18,6 +18,7 @@
                             <span class="slogan">{{item.slogan}}</span>
                         </router-link>
                     </li>
+
                 </ul>
             </div>
         </div>
@@ -182,6 +183,7 @@ li {
 
 .li_indexInfo {
     position: relative;
+    /* display: inline-block; */
     margin: 0 auto;
     margin-top: 0.6rem;
     width: 9.146rem;
@@ -215,7 +217,7 @@ li {
     display: block;
     top: 4.933rem;
     left: 0.373rem;
-    width: 8.493rem;
+    width: 8.8rem;
     font-size: 0.333rem;
     color: #9f9f9f;
 }
