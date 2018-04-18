@@ -284,6 +284,13 @@ export default {
                     groupId: this.groupid
                 }]
             ));
+            alert(JSON.stringify(
+                [{
+                    classId: this.classid,
+                    num: parseInt(cheerToNum.value),
+                    groupId: this.groupid
+                }]
+            ));
             let timestamp = Math.round(new Date().getTime() / 1000);
             let nonce = parseInt(100 * Math.random());
             let signature = this.$sha1(this.$md5(string) + timestamp.toString() + nonce + 'cheer_vote');
