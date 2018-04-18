@@ -142,12 +142,12 @@ export default {
             }
 
             let data = [];
-            data.push(JSON.stringify({
+            data.push({
                 classId: this.cheer_classId,
                 num: parseInt(cheerToNum.value),
                 groupId: this.cheer_groupId
-            }));
-            let string = this.$base64.encode(data);
+            });
+            let string = this.$base64.encode(JSON.stringify(data));
             let timestamp = Math.round(new Date().getTime() / 1000);
             let nonce = parseInt(100 * Math.random());
             let signature = this.$sha1(this.$md5(string) + timestamp.toString() + nonce + 'cheer_vote');
