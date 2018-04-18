@@ -314,7 +314,6 @@ export default {
             let shadow = document.querySelector('.shadow');
             let cheerToNum = document.querySelector('.cheer_to_num');
 
-
             this["cheer" + index] = num;
             this.cheer_to_num = "";
             cheerAlert.className = "cheerAlert no";
