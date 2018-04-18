@@ -101,6 +101,7 @@ export default {
             //获取自己的助力历史
             this.$http.get(this.api+'/vote/user/assistance/history')
                 .then((response) => {
+                    alert(JSON.stringify(response.data));
                     this.history = response.data;
                 })
                 .catch((err) => {
