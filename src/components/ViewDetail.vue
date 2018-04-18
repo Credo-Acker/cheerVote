@@ -690,8 +690,6 @@ input:focus {
     margin-top: -4.233rem;
     height: 6.76rem;
     width: 10rem;
-    height: auto;
-    width: auto;
 }
 
 .bigImg .wc-slide {
