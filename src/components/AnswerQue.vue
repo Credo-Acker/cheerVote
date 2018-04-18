@@ -116,7 +116,7 @@ export default {
             //获取答案
             this.$http.post(this.api+'/vote/user/answer', params)
                 .then((response) => {
-                    let right = response.data.rightAnswer;
+                    let right = response.data.answer;
                     console.log(right);
                     if (right) {
                         this.$router.push({
