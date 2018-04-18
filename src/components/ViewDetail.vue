@@ -700,19 +700,20 @@ input:focus {
     height: 100%;
 }
 
+.bigImg .wc-slide {
+    width: 10rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
 .bigImg .wc-slide img {
-    position: absolute;
     /* top: 50%; */
     /* margin-top: -4.233rem; */
     /* height: 6.76rem; */
     width: 10rem;
     height: auto;
-}
-
-.bigImg .wc-slide {
-    height: 100%;
-    width: 10rem;
-    position: relative;
 }
 
 .description {
