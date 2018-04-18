@@ -102,7 +102,10 @@ export default {
                 questionId: this.questionId,
                 userAnswer: this.choose
             });
-            let string = this.$base64.encode(data);
+            let string = this.$base64.encode(JSON.stringify({
+                questionId: this.questionId,
+                userAnswer: this.choose
+            }));
             let timestamp = Math.round(new Date().getTime() / 1000).toString();
             let nonce = "a";
             let signature = this.$sha1(this.$md5(string + timestamp + nonce) + "cheer_vote").toUpperCase();
@@ -117,7 +120,6 @@ export default {
             this.$http.post(this.api+'/vote/user/answer', params)
                 .then((response) => {
                     let right = response.data.answer;
-                    console.log(right);
                     if (right) {
                         this.$router.push({
                             name: 'AnswerCheck',
