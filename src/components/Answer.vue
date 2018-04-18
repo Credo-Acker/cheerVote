@@ -104,7 +104,7 @@ export default {
         //获取今日答题数
         this.$http.get(this.api+'/vote/user/todayNum')
             .then((response) => {
-                let todayNum = response.data.todayNum;
+                let todayNum = response.data.todaynum;
                 if (todayNum >= 50) {
                     this.can = false;
                 }

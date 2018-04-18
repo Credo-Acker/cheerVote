@@ -76,7 +76,7 @@
                     <img :src="item.imgUrl">
                     <div class="description">
                         <div class="description_title">
-                            {{item.playerName}}
+                            {{item.playername}}
                         </div>
                         <div class="description_cont">
                             {{item.introduce}}

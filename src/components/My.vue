@@ -79,8 +79,8 @@ export default {
             this.$http.get(this.api+'/vote/user/info')
                 .then((response) => {
                     if (response.data.nickName) {
-                        this.nickname = response.data.nickName;
-                        this.headImgUrl = response.data.headImgUrl;
+                        this.nickname = response.data.nickname;
+                        this.headImgUrl = response.data.headimgurl;
                     }
                 })
                 .catch((error) => {
@@ -133,13 +133,13 @@ export default {
                 shadow.className = "shadow no";
                 return false;
             }
-            // if (cheerToNum.value > this.cheerNum) {
-            //     alert("投票数超过您拥有的票数！");
-            //     cheerToNum.value = "";
-            //     cheerAlert.className = "cheerAlert no";
-            //     shadow.className = "shadow no";
-            //     return false;
-            // }
+            if (cheerToNum.value > this.cheerNum) {
+                alert("投票数超过您拥有的票数！");
+                cheerToNum.value = "";
+                cheerAlert.className = "cheerAlert no";
+                shadow.className = "shadow no";
+                return false;
+            }
 
             let data = JSON.stringify({
                 "data": [{

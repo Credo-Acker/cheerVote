@@ -73,10 +73,10 @@ export default {
     created() {
         this.$http.get(this.api+'/vote/user/question')
             .then((response) => {
-                if (!response.data.nowNum) {
+                if (!response.data.nownum) {
                     this.$router.push('/answer');
                 }
-                this.todayNum = response.data.nowNum + 1;
+                this.todayNum = response.data.nownum + 1;
                 this.title = response.data.title;
                 this.answerA = response.data.A;
                 this.answerB = response.data.B;
