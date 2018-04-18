@@ -77,7 +77,7 @@ export default {
                 console.log(error);
             });
         //用户是否第一次进入页面
-        let rule = getCookie("rule");
+        let rule = null;alert(document.cookie);
         if (rule > 0) {
             this.isRuleMove = true;
             this.isRule45 = true;

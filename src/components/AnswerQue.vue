@@ -107,7 +107,7 @@ export default {
                 userAnswer: this.choose
             }));
             let timestamp = Math.round(new Date().getTime() / 1000).toString();
-            let nonce = "a";
+            let nonce = parseInt(100 * Math.random());
             let signature = this.$sha1(this.$md5(string + timestamp + nonce) + "cheer_vote").toUpperCase();
             let params = {
                 "string": string,
