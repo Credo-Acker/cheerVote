@@ -167,9 +167,9 @@ export default {
             })
             .then((response) => {
                 this.information = response.data;
-                this.slides.push(this.information.playImg1);
-                this.slides.push(this.information.playImg2);
-                this.slides.push(this.information.playImg3);
+                this.slides.push(this.information.playimg1);
+                this.slides.push(this.information.playimg2);
+                this.slides.push(this.information.playimg3);
                 this.isWeiXin();
                 if (this.android) {
                     this.video = this.video_List2[response.data.className];

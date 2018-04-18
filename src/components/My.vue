@@ -78,7 +78,7 @@ export default {
             //获取自己的信息
             this.$http.get(this.api+'/vote/user/info')
                 .then((response) => {
-                    if (response.data.nickName) {
+                    if (response.data.nickname) {
                         this.nickname = response.data.nickname;
                         this.headImgUrl = response.data.headimgurl;
                     }
