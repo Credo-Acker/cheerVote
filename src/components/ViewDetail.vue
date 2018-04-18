@@ -703,9 +703,15 @@ input:focus {
 .bigImg .wc-slide {
     width: 10rem;
     height: 100%;
-    display: flex;
-    align-items: center;
     position: relative;
+    display:-webkit-box;/* android 2.1-3.0, ios 3.2-4.3 */
+    display:-webkit-flex;/* Chrome 21+ */
+    display:-ms-flexbox;/* WP IE 10 */
+    display:flex;/* android 4.4 */
+    -webkit-box-align: center;/* android 2.1-3.0, ios 3.2-4.3 */
+    -webkit-align-items: center;/* Chrome 21+ */
+    -ms-flex-align: center;/* WP IE 10 */
+    align-items: center;/* android 4.4 */
 }
 
 .bigImg .wc-slide img {
