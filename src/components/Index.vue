@@ -72,6 +72,7 @@ export default {
         this.$http.get(this.api+'/vote/user/cheer_info/firstPage')
             .then((response) => {
                 alert(JSON.stringify(response.headers));
+                alert(JSON.stringify(response.data));
                 this.information = response.data;
             })
             .catch((error) => {
