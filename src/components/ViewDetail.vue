@@ -173,8 +173,10 @@ export default {
                 this.isWeiXin();
                 if (this.android) {
                     this.video = this.video_List2[response.data.className];
+                    alert(this.video);
                 } else if (this.ios) {
                     this.video = "http://wx.yyeke.com/nodejs/cheerVote/video/" + this.video_List1[response.data.className];
+                    alert(this.video);
                 } else {
                     this.video = this.video_List2[response.data.clclassName];
                 }

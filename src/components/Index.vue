@@ -131,7 +131,7 @@ li {
     position: relative;
     padding: 0.16rem 0.4rem 0.16rem 0.4rem;
     width: 9.2rem;
-    height: 9.8rem;
+    height: 9.7rem;
     font-size: 0.346rem;
     line-height: 0.55rem;
     cursor: pointer;
@@ -187,7 +187,7 @@ li {
 
 @keyframes ruleMoveUp {
     0% {
-        height: 9.8rem;
+        height: 9.7rem;
     }
     100% {
         height: 0.45rem;
@@ -199,7 +199,7 @@ li {
         height: 0.45rem;
     }
     100% {
-        height: 9.8rem;
+        height: 9.7rem;
     }
 }
 
