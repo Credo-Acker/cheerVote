@@ -42,7 +42,7 @@
                         <video :src="video" controls preload width="100%" height="100%"></video>
                     </div>
                     <div v-else-if="android == false && ios == false">
-                        <iframe :src="video" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="100%">  </iframe>
+                        <video :src="video" controls preload width="100%" height="100%"></video>
                     </div>
                 </div>
             </div>
@@ -205,10 +205,11 @@ export default {
                 this.isWeiXin();
                 if (this.android) {
                     this.video = this.video_List2[response.data.classname];
+                    alert(this.video);
                 } else if (this.ios) {
                     this.video = "http://wx.yyeke.com/nodejs/cheerVote/video/" + this.video_List1[response.data.classname];
                 } else {
-                    this.video = this.video_List2[response.data.classname];
+                    this.video = "http://wx.yyeke.com/nodejs/cheerVote/video/" +  this.video_List1[this.information.classname];
                 }
             })
             .catch((error) => {
