@@ -40,11 +40,11 @@ export default {
                 .then((response) => {
                     if (response.data.todayNum) {
                         this.da = response.data.todayNum;
-                        this.dachao = response.data.todayNumRank;
+                        this.dachao = response.data.todayNumPercent;
                         this.dui = response.data.rightNum;
-                        this.duichao = response.data.rightNumRank;
+                        this.duichao = response.data.rightNumPercent;
                         this.zhu = response.data.assistance;
-                        this.zhuchao = response.data.assistanceRank;
+                        this.zhuchao = response.data.assPercent;
                     } else {
                         this.da = 0;
                         this.dachao = "0%";
