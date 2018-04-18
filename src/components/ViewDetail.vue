@@ -219,6 +219,11 @@ export default {
             })
             .then((response) => {
                 this.duiyuan = response.data;
+                for (let i = 0; i < this.duiyuan.length; i++) {
+                    if (!this.duiyuan[i].imgUrl) {
+                        this.duiyuan.splice(i, 1);
+                    }
+                }
                 this.duiyuanLength = response.data.length;
             })
             .catch((error) => {
