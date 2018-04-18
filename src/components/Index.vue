@@ -1,8 +1,21 @@
 <template>
     <div class="index">
         <div class="rulewrap">
-            <div class="rule" v-on:click="showRule">
-                活动规则：记得发看过了荆防颗粒局火热欧担惊受恐几十块的就看到放得开就大放大发的的发的热惹我惹我热人娃儿娃儿我惹我人文人文任务二为东西的发的发的规范的话语。
+            <div class="rule" :class="{rule45: isRule45}" v-on:click="showRule">
+                活动时间: 2018年4月19日-4月21日</br>
+                答题开放时间: 每日 08: 00-19: 50</br>
+                活动规则: 参与者通过答题获得投票(答对一题获得一票，每位参与者每天限答50题)，获得投票后可直接投票给自己所支持的拉拉队。活动截止时，得票第一的战队为获胜战队。</br>
+                战队:</br>
+                重邮仙女阵线联盟: 光电工程学院重庆国际半导体学院+法学院+传媒艺术学院</br>
+                Mr tony: 通信信息工程学院+先进制造工程学院+生物信息学院+理学院</br>
+                小猪佩奇战队: 软件工程学院+经济管理学院+国际学院</br>
+                外动机: 计算机科学与技术学院+自动化学院+外国语学</br>
+                奖励规则:</br>
+                活动结束后得票第一的战队获得奖金</br>
+                活动期间累计答题正确数最高的答题者获得相应奖品</br>
+                每日答题者根据答题正确数排名获得相应奖品</br>
+                每日抽取3位答题者为幸运用户获得相应奖品</br>
+                更多奖励、则请关注重邮小帮丢微信公众号查看
             </div>
             <div class="glide" v-on:click="showRule">
                 <img src="../assets/glide.png">
@@ -47,9 +60,10 @@ export default {
     name: 'Index',
     data () {
         return {
-            //main index
             isRuleMove: false,
             information: [],
+            todayNum: '',
+            isRule45: false,
             api: "https://wx.yyeke.com/cheer_vote"
         }
     },
@@ -58,6 +72,17 @@ export default {
         this.$http.get(this.api+'/vote/user/cheer_info/firstPage')
             .then((response) => {
                 this.information = response.data;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        //获取答题数
+        this.$http.get(this.api+'/vote/user/todayNum')
+            .then((response) => {
+                if (response.data.todayNum > 0) {
+                    this.isRuleMove = true;
+                    this.isRule45 = true;
+                }
             })
             .catch((error) => {
                 console.log(error);
@@ -106,7 +131,7 @@ li {
     position: relative;
     padding: 0.16rem 0.4rem 0.16rem 0.4rem;
     width: 9.2rem;
-    height: 1.6rem;
+    height: 9.8rem;
     font-size: 0.346rem;
     line-height: 0.55rem;
     cursor: pointer;
@@ -114,6 +139,20 @@ li {
     z-index: 3;
     color: #ffffff;
     background: #50ceff;
+}
+
+.rule45 {
+    position: relative;
+    padding: 0.16rem 0.4rem 0.16rem 0.4rem;
+    width: 9.2rem;
+    font-size: 0.346rem;
+    line-height: 0.55rem;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 3;
+    color: #ffffff;
+    background: #50ceff;
+    height: 0.45rem;
 }
 
 .glide {
@@ -148,7 +187,7 @@ li {
 
 @keyframes ruleMoveUp {
     0% {
-        height: 1.6rem;
+        height: 9.8rem;
     }
     100% {
         height: 0.45rem;
@@ -160,7 +199,7 @@ li {
         height: 0.45rem;
     }
     100% {
-        height: 1.6rem;
+        height: 9.8rem;
     }
 }
 
@@ -183,7 +222,6 @@ li {
 
 .li_indexInfo {
     position: relative;
-    /* display: inline-block; */
     margin: 0 auto;
     margin-top: 0.6rem;
     width: 9.146rem;

@@ -20,7 +20,7 @@
                 </div>
                 <div class="intro">
                     <p class="p_intro_title">
-                        拉拉队简介：
+                         拉拉队简介：
                     </p>
                     <p class="p_intro">
                         {{information.introduce}}
@@ -414,6 +414,7 @@ export default {
     height: 0.453rem;
     width: 0.066rem;
     margin-top: 0.4rem;
+    border-radius: 0.133rem;
 }
 
 .video_title span {
