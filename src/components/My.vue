@@ -81,7 +81,7 @@ export default {
                     if (response.data.nickname) {
                         this.nickname = response.data.nickname;
                         this.headImgUrl = response.data.headimgurl;
-                        alert(response.data);
+                        alert(JSON.stringify(response.data));
                     }
                 })
                 .catch((error) => {
