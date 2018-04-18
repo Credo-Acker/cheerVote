@@ -102,10 +102,7 @@ export default {
                 questionId: this.questionId,
                 userAnswer: this.choose
             });
-            let string = this.$base64.encode(JSON.stringify({
-                questionId: this.questionId,
-                userAnswer: this.choose
-            }));
+            let string = this.$base64.encode(data);
             let timestamp = Math.round(new Date().getTime() / 1000).toString();
             let nonce = parseInt(100 * Math.random());
             let signature = this.$sha1(this.$md5(string + timestamp + nonce) + "cheer_vote").toUpperCase();
