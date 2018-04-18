@@ -13,7 +13,7 @@
                             <h3>{{item.groupName}}</h3>
                             <span>{{item.distance}}</span>
                             <ul class="xueyuan">
-                                <li v-for="item2 in classNames[index]">
+                                <li v-for="item2 in classNames">
                                     {{item2}}
                                 </li>
                             </ul>
@@ -138,6 +138,7 @@ export default {
                 for (item of this.teams) {
                     this.classNames.push(JSON.parse(item.className));
                 }
+                alert(this.classNames);
             })
             .catch((error) => {
                 console.log(error);

@@ -115,6 +115,7 @@ export default {
     data() {
         return {
             classid: 0,
+            groupid: 0,
             information: {},
             slides: [],
             currentSlide: 1,
@@ -159,6 +160,34 @@ export default {
     },
     created() {
         this.classid = this.$route.params.classid;
+        switch (this.classid.toString()) {
+            case "1": this.groupid = 2;
+                    break;
+            case "2": this.groupid = 4;
+                    break;
+            case "3": this.groupid = 4;
+                    break;
+            case "4": this.groupid = 2;
+                    break;
+            case "5": this.groupid = 1;
+                    break;
+            case "6": this.groupid = 3;
+                    break;
+            case "7": this.groupid = 2;
+                    break;
+            case "8": this.groupid = 2;
+                    break;
+            case "9": this.groupid = 3;
+                    break;
+            case "10": this.groupid = 1;
+                    break;
+            case "11": this.groupid = 4;
+                    break;
+            case "12": this.groupid = 3;
+                    break;
+            case "13": this.groupid = 1;
+                    break;
+        }
         //获取详情页数据
         this.$http.get(this.api+'/vote/user/cheer_info/main', {
                 params: {
@@ -248,25 +277,13 @@ export default {
                 return false;
             }
 
-            // let data = JSON.stringify({
-            //     "data": [{
-            //         classId: this.cheer_classId,
-            //         num: parseInt(cheerToNum.value),
-            //         groupId: this.cheer_groupId
-            //     }]
-            // });
             let string = this.$base64.encode(JSON.stringify(
                 [{
                     classId: this.cheer_classId,
                     num: parseInt(cheerToNum.value),
-                    groupId: this.cheer_groupId
+                    groupId: this.groupid
                 }]
             ));
-            alert(JSON.stringify([{
-                classId: this.cheer_classId,
-                num: parseInt(cheerToNum.value),
-                groupId: this.cheer_groupId
-            }]));
             let timestamp = Math.round(new Date().getTime() / 1000);
             let nonce = parseInt(100 * Math.random());
             let signature = this.$sha1(this.$md5(string) + timestamp.toString() + nonce + 'cheer_vote');

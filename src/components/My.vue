@@ -167,7 +167,6 @@ export default {
             //发送助力数
             this.$http.post(this.api+'/vote/user/cheer/distance', params)
                 .then((response) => {
-                    
                     this.$http.get(this.api+'/vote/user/assistance')
                         .then((response) => {
                             if (response.data.assistance != null) {
