@@ -147,7 +147,7 @@ export default {
             final: [],
             cheer_to_num: "",
             choose_xueyuan: "",
-            api: "https://wx.yyeke.com/cheer_vote"
+            api: "https://wx.idsbllp.cn/cheer_vote"
         }
     },
     computed: {

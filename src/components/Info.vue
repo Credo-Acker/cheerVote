@@ -113,7 +113,7 @@ export default {
             luckyOnes: [],
             timeNow: 0,
             classNames: [],
-            api: "https://wx.yyeke.com/cheer_vote"
+            api: "https://wx.idsbllp.cn/cheer_vote"
         }
     },
     created() {

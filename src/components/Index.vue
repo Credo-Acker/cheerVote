@@ -62,7 +62,7 @@ export default {
             information: [],
             todayNum: '',
             isRule45: false,
-            api: "https://wx.yyeke.com/cheer_vote"
+            api: "https://wx.idsbllp.cn/cheer_vote"
         }
     },
     created() {

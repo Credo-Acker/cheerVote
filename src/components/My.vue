@@ -71,7 +71,7 @@ export default {
             history: [],
             cheer_classId: 0,
             cheer_groupId: 0,
-            api: "https://wx.yyeke.com/cheer_vote"
+            api: "https://wx.idsbllp.cn/cheer_vote"
         }
     },
     created() {
