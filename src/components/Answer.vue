@@ -212,7 +212,7 @@ export default {
 }
 
 /* banner2 */
-.banner2 {
+/* .banner2 {
     position: relative;
     margin: 0 auto;
     top: 3.733rem;
@@ -241,7 +241,7 @@ export default {
     top: 3.733rem;
     color: #939393;
     font-size: 0.32rem;
-}
+} */
 
 /* 底部导航 */
 .footer_answer {

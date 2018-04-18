@@ -279,7 +279,7 @@ export default {
 
             let string = this.$base64.encode(JSON.stringify(
                 [{
-                    classId: this.cheerid,
+                    classId: this.classid,
                     num: parseInt(cheerToNum.value),
                     groupId: this.groupid
                 }]
