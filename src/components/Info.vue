@@ -19,14 +19,14 @@
                             </ul>
                         </li>
                     </ul>
-                    <v-touch v-on:swiperight="right" class="toright">
+                    <div @click="right" class="toright">
                         <div class="tip2">
                             <span>
-                                右滑可查看答题榜单 <img src="../assets/to_right.png">
+                                点击可查看答题榜单 <img src="../assets/to_right.png">
                             </span>
 
                         </div>
-                    </v-touch>
+                    </div>
                 </div>
                 <div class="bangdan no">
                     <ul class="ul_bangdan" :class="{ul_bangdan_: timeNow >= 22}">
@@ -51,7 +51,7 @@
                             <span class="shuliang" :class="{shuliang_: timeNow >= 22}">{{item.rightNum}}题</span>
                         </li>
                     </ul>
-                    <v-touch v-on:swipeleft="left" class="toleft">
+                    <div @click="left" class="toleft">
                         <div class="tip3" :class="{no: timeNow >= 22}">
                                 <img src="../assets/to_left.png"> 每晚22:00公布幸运用户
                             </div>
@@ -63,7 +63,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </v-touch>
+                    </div>
                 </div>
             </v-touch>
             <router-link to="/my">
