@@ -208,7 +208,6 @@ export default {
                 this.isWeiXin();
                 // if (this.android) {
                 //     this.video = this.video_List2[response.data.classname];
-                //     alert(this.video);
                 // } else if (this.ios) {
                 //     this.video = "http://wx.yyeke.com/nodejs/cheerVote/video/" + this.video_List1[response.data.classname];
                 // } else {
