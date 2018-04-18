@@ -321,6 +321,7 @@ export default {
 .ul_bangdan {
     width: 6.733rem;
     position: relative;
+    height: 9.466rem;
     left: 1.6rem;
     top: 0.2rem;
 }
@@ -462,6 +463,10 @@ export default {
 
 .cheerNum .num {
     color: #ff7e7e;
+}
+
+.ul_bangdan_ {
+    height: 8.633rem;
 }
 
 .ul_bangdan_ li {
