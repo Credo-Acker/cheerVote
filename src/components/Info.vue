@@ -136,6 +136,7 @@ export default {
                 this.teams = response.data;
                 let item;
                 for (item of this.teams) {
+                    alert(item.className);
                     this.classNames.push(JSON.parse(item.className));
                 }
                 alert(this.classNames);
