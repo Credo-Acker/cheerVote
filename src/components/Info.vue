@@ -29,33 +29,33 @@
                     </v-touch>
                 </div>
                 <div class="bangdan no">
-                    <ul class="ul_bangdan" :class="{ul_bangdan_: timeNow >= 20}">
+                    <ul class="ul_bangdan" :class="{ul_bangdan_: timeNow >= 22}">
                         <li v-if="first">
-                            <span class="no1" :class="{no1_: timeNow >= 20}"></span>
-                            <span class="name_bangdan" :class="{name_bangdan_: timeNow >= 20}">{{first.nickname}}</span>
-                            <span class="shuliang" :class="{shuliang_: timeNow >= 20}">{{first.rightNum}}题</span>
+                            <span class="no1" :class="{no1_: timeNow >= 22}"></span>
+                            <span class="name_bangdan" :class="{name_bangdan_: timeNow >= 22}">{{first.nickname}}</span>
+                            <span class="shuliang" :class="{shuliang_: timeNow >= 22}">{{first.rightNum}}题</span>
                         </li>
                         <li v-if="second">
-                            <span class="no2" :class="{no2_: timeNow >= 20}"></span>
-                            <span class="name_bangdan" :class="{name_bangdan_: timeNow >= 20}">{{second.nickname}}</span>
-                            <span class="shuliang" :class="{shuliang_: timeNow >= 20}">{{second.rightNum}}题</span>
+                            <span class="no2" :class="{no2_: timeNow >= 22}"></span>
+                            <span class="name_bangdan" :class="{name_bangdan_: timeNow >= 22}">{{second.nickname}}</span>
+                            <span class="shuliang" :class="{shuliang_: timeNow >= 22}">{{second.rightNum}}题</span>
                         </li>
                         <li v-if="third">
-                            <span class="no3" :class="{no3_: timeNow >= 20}"></span>
-                            <span class="name_bangdan" :class="{name_bangdan_: timeNow >= 20}">{{third.nickname}}</span>
-                            <span class="shuliang" :class="{shuliang_: timeNow >= 20}">{{third.rightNum}}题</span>
+                            <span class="no3" :class="{no3_: timeNow >= 22}"></span>
+                            <span class="name_bangdan" :class="{name_bangdan_: timeNow >= 22}">{{third.nickname}}</span>
+                            <span class="shuliang" :class="{shuliang_: timeNow >= 22}">{{third.rightNum}}题</span>
                         </li>
                         <li v-for="(item, index) in next">
-                            <span class="no_next" :class="{no_next_: timeNow >= 20}">{{index+4}}</span>
-                            <span class="name_bangdan" :class="{name_bangdan_: timeNow >= 20}">{{item.nickname}}</span>
-                            <span class="shuliang" :class="{shuliang_: timeNow >= 20}">{{item.rightNum}}题</span>
+                            <span class="no_next" :class="{no_next_: timeNow >= 22}">{{index+4}}</span>
+                            <span class="name_bangdan" :class="{name_bangdan_: timeNow >= 22}">{{item.nickname}}</span>
+                            <span class="shuliang" :class="{shuliang_: timeNow >= 22}">{{item.rightNum}}题</span>
                         </li>
                     </ul>
                     <v-touch v-on:swipeleft="left" class="toleft">
-                        <div class="tip3" :class="{no: timeNow >= 20}">
-                                <img src="../assets/to_left.png"> 每晚20:00公布幸运用户
+                        <div class="tip3" :class="{no: timeNow >= 22}">
+                                <img src="../assets/to_left.png"> 每晚22:00公布幸运用户
                             </div>
-                        <div v-if="timeNow >= 20">
+                        <div v-if="timeNow >= 22">
                             <ul class="ul_luck">
                                 <li v-for="item in luckyOnes">
                                     <img :src="item.headImgUrl">
@@ -163,7 +163,7 @@ export default {
             });
 
         //如果八点，则获取幸运用户
-        if (this.timeNow >= 20) {
+        if (this.timeNow >= 22) {
             this.$http.get(this.api+'/vote/user/luckyUser')
                 .then((response) => {
                     this.luckyOnes = response.data;

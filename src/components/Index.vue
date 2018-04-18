@@ -3,7 +3,6 @@
         <div class="rulewrap">
             <div class="rule" :class="{rule45: isRule45}" v-on:click="showRule">
                 活动时间: 2018年4月19日-4月21日</br>
-                答题开放时间: 每日 08: 00-19: 50</br>
                 活动规则: 参与者通过答题获得投票(答对一题获得一票，每位参与者每天限答50题)，获得投票后可直接投票给自己所支持的拉拉队。活动截止时，得票第一的战队为获胜战队。</br>
                 战队:</br>
                 重邮仙女阵线联盟: 光电工程学院重庆国际半导体学院+法学院+传媒艺术学院</br>
@@ -141,7 +140,7 @@ li {
     position: relative;
     padding: 0.16rem 0.4rem 0.16rem 0.4rem;
     width: 9.2rem;
-    height: 9.7rem;
+    height: 9.15rem;
     font-size: 0.346rem;
     line-height: 0.55rem;
     cursor: pointer;
@@ -197,7 +196,7 @@ li {
 
 @keyframes ruleMoveUp {
     0% {
-        height: 9.7rem;
+        height: 9.15rem;
     }
     100% {
         height: 0.45rem;
@@ -209,7 +208,7 @@ li {
         height: 0.45rem;
     }
     100% {
-        height: 9.7rem;
+        height: 9.15rem;
     }
 }
 
