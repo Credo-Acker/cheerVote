@@ -77,10 +77,25 @@ export default {
                 console.log(error);
             });
         //用户是否第一次进入页面
-        let rule = null;alert(document.cookie);
+        let rule = getCookie("rule") ? getCookie("rule") : 0;
         if (rule > 0) {
             this.isRuleMove = true;
             this.isRule45 = true;
+        } else {
+            let date = new Date();
+            date.setTime(date.getTime() + 3 * 24 * 60 * 60 * 1000);
+            document.cookie = "rule=1; expires=" + date.toGMTString();
+        }
+        function getCookie(cname) {
+            let name = cname + "=";
+            let ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i].trim();
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length,c.length);
+                }
+            }
+            return "";
         }
     },
     mounted() {
