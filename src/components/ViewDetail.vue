@@ -35,13 +35,16 @@
                     <img src="../assets/log.png"><span>拉拉队宣传视频</span>
                 </div>
                 <div class="video_main">
-                    <div v-if="android == true">
+                    <!-- <div v-if="android == true">
                         <iframe :src="video" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="100%">  </iframe>
                     </div>
                     <div v-else-if="ios == true">
                         <video :src="video" controls preload width="100%" height="100%"></video>
                     </div>
                     <div v-else-if="android == false && ios == false">
+                        <video :src="video" controls preload width="100%" height="100%"></video>
+                    </div> -->
+                    <div>
                         <video :src="video" controls preload width="100%" height="100%"></video>
                     </div>
                 </div>
@@ -126,7 +129,7 @@ export default {
             duiyuan: [],
             duiyuanLength: 0,
             video_List1: {
-                "通信学院": "tongxin.mp4",
+                "通信与信息工程学院": "tongxin.mp4",
                 "计算机科学与技术学院": "jike.mp4",
                 "自动化学院": "zidong.mp4",
                 "先进制造工程学院": "xianjin.mp4",
@@ -141,13 +144,13 @@ export default {
                 "网络空间安全与信息法学院": "anfa.mp4"
             },
             video_List2: {
-                "通信学院": "//player.bilibili.com/player.html?aid=22178822&cid=36688856&page=9",
+                "通信与信息工程学院": "//player.bilibili.com/player.html?aid=22178822&cid=36688856&page=9",
                 "计算机科学与技术学院": "//player.bilibili.com/player.html?aid=22178822&cid=36688719&page=5",
                 "自动化学院": "//player.bilibili.com/player.html?aid=22178822&cid=36688890&page=12",
                 "先进制造工程学院": "//player.bilibili.com/player.html?aid=22178822&cid=36688886&page=11",
                 "光电工程学院/国际半导体学院": "//player.bilibili.com/player.html?aid=22178822&cid=36688626&page=3",
                 "软件工程学院": "//player.bilibili.com/player.html?aid=22178822&cid=36697216&page=13",
-                "生物信息学院": "//player.bilibili.com/player.html?aid=22178822&cid=36688842&page=8",
+                "生物信息学院": "//player.bilibili.com/player.html?aid=22029918&cid=36409452&page=1",
                 "理学院": "//player.bilibili.com/player.html?aid=22178822&cid=36688794&page=7",
                 "经济管理学院": "//player.bilibili.com/player.html?aid=22178822&cid=36688789&page=6",
                 "传媒艺术学院": "//player.bilibili.com/player.html?aid=22178822&cid=36688616&page=1",
@@ -203,14 +206,15 @@ export default {
                 this.slides.push(this.information.playImg2);
                 this.slides.push(this.information.playImg3);
                 this.isWeiXin();
-                if (this.android) {
-                    this.video = this.video_List2[response.data.classname];
-                    alert(this.video);
-                } else if (this.ios) {
-                    this.video = "http://wx.yyeke.com/nodejs/cheerVote/video/" + this.video_List1[response.data.classname];
-                } else {
-                    this.video = "http://wx.yyeke.com/nodejs/cheerVote/video/" +  this.video_List1[this.information.classname];
-                }
+                // if (this.android) {
+                //     this.video = this.video_List2[response.data.classname];
+                //     alert(this.video);
+                // } else if (this.ios) {
+                //     this.video = "http://wx.yyeke.com/nodejs/cheerVote/video/" + this.video_List1[response.data.classname];
+                // } else {
+                //     this.video = "http://wx.yyeke.com/nodejs/cheerVote/video/" +  this.video_List1[this.information.classname];
+                // }
+                this.video = "http://wx.yyeke.com/nodejs/cheerVote/video/" +  this.video_List1[this.information.classname];
             })
             .catch((error) => {
                 console.log(error);
