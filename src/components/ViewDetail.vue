@@ -296,21 +296,16 @@ export default {
             //发送助力数
             this.$http.post(this.api+'/vote/user/cheer/distance', params)
                 .then((response) => {
-                    alert(JSON.stringify(response.data));
                     this.$http.get(this.api+'/vote/user/assistance')
                         .then((response) => {
-                            if (response.data.assistance != null) {
-                                this.cheerNum = response.data.assistance;
-                            } else {
-                                this.cheerNum = 0;
-                            }
+                            this.cheerNum = response.data.assistance;
+                            cheerAlert.className = "cheerAlert no";
+                            cheerAlert2.className = "cheerAlert2";
+                            cheerToNum.value = "";
                         })
                         .catch((error) => {
                             console.log(error);
                         });
-                    cheerAlert.className = "cheerAlert no";
-                    cheerAlert2.className = "cheerAlert2";
-                    cheerToNum.value = "";
                 })
                 .catch((err) => {
                     console.log(err);

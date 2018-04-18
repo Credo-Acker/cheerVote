@@ -148,13 +148,6 @@ export default {
                     groupId: this.cheer_groupId
                 }]
             ));
-            alert(JSON.stringify(
-                [{
-                    classId: this.cheer_classId,
-                    num: parseInt(cheerToNum.value),
-                    groupId: this.cheer_groupId
-                }]
-            ));
             let timestamp = Math.round(new Date().getTime() / 1000);
             let nonce = parseInt(100 * Math.random());
             let signature = this.$sha1(this.$md5(string) + timestamp.toString() + nonce + 'cheer_vote');
@@ -169,18 +162,14 @@ export default {
                 .then((response) => {
                     this.$http.get(this.api+'/vote/user/assistance')
                         .then((response) => {
-                            if (response.data.assistance != null) {
-                                this.cheer_num = response.data.assistance;
-                            } else {
-                                this.cheer_num = 0;
-                            }
+                            this.cheer_num = response.data.assistance;
+                            cheerAlert.className = "cheerAlert no";
+                            cheerAlert2.className = "cheerAlert2";
+                            cheerToNum.value = "";
                         })
                         .catch((error) => {
                             console.log(error);
                         });
-                    cheerAlert.className = "cheerAlert no";
-                    cheerAlert2.className = "cheerAlert2";
-                    cheerToNum.value = "";
                 })
                 .catch((err) => {
                     console.log(err);
