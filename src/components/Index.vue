@@ -71,6 +71,7 @@ export default {
         //获取首页信息
         this.$http.get(this.api+'/vote/user/cheer_info/firstPage')
             .then((response) => {
+                alert(JSON.stringify(response.data));
                 this.information = response.data;
             })
             .catch((error) => {
