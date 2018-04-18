@@ -1,6 +1,6 @@
 <template>
     <div class="answer">
-        <div v-if="now()">
+        <div>
             <div v-if="can">
                 <div class="banner">
 
@@ -45,7 +45,7 @@
                 </div>
             </div>
         </div>
-        <div v-else>
+        <!-- <div v-else>
             <div class="banner2">
 
             </div>
@@ -55,7 +55,7 @@
                     每日答题时间为08:00-19:50
                 </span>
             </div>
-        </div>
+        </div> -->
         <div class="footer_answer">
             <router-link to="/index">
                 <div class="shouye">
@@ -82,8 +82,8 @@ export default {
     data() {
         return {
             my_cheer_num: "",
-            hour1: 24,  //19
-            hour2: 8,
+            // hour1: 24,
+            // hour2: 8,
             can: true,
             api: "https://wx.yyeke.com/cheer_vote"
         }
@@ -117,18 +117,18 @@ export default {
 
     },
     methods: {
-        now: function () {
-            let hours = new Date().getHours();
-            let minutes = new Date().getMinutes();
-            if (hours > this.hour1 || hours < this.hour2) {
-                return false;
-            } else if (hours == this.hour1 && minutes >= 50) {
-                return false;
-            } else {
-                return true;
-            }
-            return true;
-        }
+        // now: function () {
+        //     let hours = new Date().getHours();
+        //     let minutes = new Date().getMinutes();
+        //     if (hours > this.hour1 || hours < this.hour2) {
+        //         return false;
+        //     } else if (hours == this.hour1 && minutes >= 50) {
+        //         return false;
+        //     } else {
+        //         return true;
+        //     }
+        //     return true;
+        // }
     }
 }
 </script>
