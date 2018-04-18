@@ -105,6 +105,7 @@ export default {
         this.$http.get(this.api+'/vote/user/todayNum')
             .then((response) => {
                 let todayNum = response.data.todaynum;
+                alert(this.todayNum)
                 if (todayNum >= 50) {
                     this.can = false;
                 }
