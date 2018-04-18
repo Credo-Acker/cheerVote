@@ -248,13 +248,13 @@ export default {
                 return false;
             }
 
-            let data = JSON.stringify({
-                "data": [{
-                    classId: this.cheer_classId,
-                    num: parseInt(cheerToNum.value),
-                    groupId: this.cheer_groupId
-                }]
-            });
+            // let data = JSON.stringify({
+            //     "data": [{
+            //         classId: this.cheer_classId,
+            //         num: parseInt(cheerToNum.value),
+            //         groupId: this.cheer_groupId
+            //     }]
+            // });
             let string = this.$base64.encode(JSON.stringify(
                 [{
                     classId: this.cheer_classId,
