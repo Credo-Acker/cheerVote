@@ -1,9 +1,9 @@
 <template>
-  <div class="enter" v-bind:class="{enter2: isEnter2}">
+  <div class="enter">
       <router-link to="/index" class="toIndex">
           <button class="over"></button>
       </router-link>
-      <template v-if="getHour() >= 17">
+      <!-- <template v-if="getHour() >= 17">
           <div class="enterInfo">
               <p>当日答题<span>{{da}}</span>题</p>
               <p>超过<span>{{dachao}}</span>的同学</p>
@@ -12,7 +12,7 @@
               <p>为拉拉队助力<span>{{zhu}}票</span></p>
               <p>超过<span>{{zhuchao}}</span>的同学</p>
           </div>
-      </template>
+      </template> -->
     <router-view/>
   </div>
 </template>
@@ -22,43 +22,43 @@ export default {
     name: 'Enter',
     data() {
         return {
-            hour: 0,
-            da: 0,
-            dachao: "0%",
-            dui: 0,
-            duichao: "0%",
-            zhu: 0,
-            zhuchao: "0%",
-            isEnter2: false,
+            // hour: 0,
+            // da: 0,
+            // dachao: "0%",
+            // dui: 0,
+            // duichao: "0%",
+            // zhu: 0,
+            // zhuchao: "0%",
+            // isEnter2: false,
             api: "https://wx.yyeke.com/cheer_vote"
         }
     },
     created() {
-        this.hour = new Date().getHours();
-        if (this.hour >= 17) {
-            this.$http.get(this.api+'/vote/user/startPage')
-                .then((response) => {
-                    if (response.data.todayNum) {
-                        this.da = response.data.todayNum;
-                        this.dachao = response.data.todayNumPercent;
-                        this.dui = response.data.rightNum;
-                        this.duichao = response.data.todayRightNumPercent;
-                        this.zhu = response.data.assistance;
-                        this.zhuchao = response.data.assPercent;
-                    } else {
-                        this.da = 0;
-                        this.dachao = "0%";
-                        this.dui = 0;
-                        this.duichao = "0%";
-                        this.zhu = 0;
-                        this.zhuchao = "0%";
-                    }
-
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
-        }
+        // this.hour = new Date().getHours();
+        // if (this.hour >= 17) {
+        //     this.$http.get(this.api+'/vote/user/startPage')
+        //         .then((response) => {
+        //             if (response.data.todayNum) {
+        //                 this.da = response.data.todayNum;
+        //                 this.dachao = response.data.todayNumPercent;
+        //                 this.dui = response.data.rightNum;
+        //                 this.duichao = response.data.todayRightNumPercent;
+        //                 this.zhu = response.data.assistance;
+        //                 this.zhuchao = response.data.assPercent;
+        //             } else {
+        //                 this.da = 0;
+        //                 this.dachao = "0%";
+        //                 this.dui = 0;
+        //                 this.duichao = "0%";
+        //                 this.zhu = 0;
+        //                 this.zhuchao = "0%";
+        //             }
+        //
+        //         })
+        //         .catch((error) => {
+        //             console.log(error);
+        //         });
+        // }
 
         setTimeout(() => {
             if (this.$route.path == '/') {
@@ -68,12 +68,12 @@ export default {
     },
     methods: {
         //启动页获取答题数
-        getHour: function () {
-            if (this.hour >= 17) {
-                this.isEnter2 = true;
-            }
-            return this.hour;
-        }
+        // getHour: function () {
+        //     if (this.hour >= 17) {
+        //         this.isEnter2 = true;
+        //     }
+        //     return this.hour;
+        // }
     }
 }
 </script>

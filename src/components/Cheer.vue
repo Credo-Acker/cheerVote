@@ -159,7 +159,7 @@ export default {
                 }
             }
 
-            if (isNaN(this.cheer1) || isNaN(this.cheer2) || isNaN(this.cheer3) || isNaN(this.cheer4) || isNaN(this.cheer5) || isNaN(this.cheer6) || isNaN(this.cheer7) || isNaN(this.cheer8) || isNaN(this.cheer9) || isNaN(this.cheer10) || isNaN(this.cheer11) || isNaN(this.cheer12) || isNaN(this.cheer13)) {
+            if (isNaN(this.cheer1) || isNaN(this.cheer2) || isNaN(this.cheer3) || isNaN(this.cheer4) || isNaN(this.cheer5) || isNaN(this.cheer6) || isNaN(this.cheer7) || isNaN(this.cheer8) || isNaN(this.cheer9) || isNaN(this.cheer10) || isNaN(this.cheer11) || isNaN(this.cheer12) || isNaN(this.cheer13) || this.cheer1 < 0 || this.cheer2 || this.cheer3 < 0 || this.cheer4 < 0 || this.cheer5 < 0 || this.cheer6 < 0 ||  this.cheer7 < 0 || this.cheer8 < 0 || this.cheer9 < 0 || this.cheer10 < 0 || this.cheer11 < 0 || this.cheer12 < 0 || this.cheer13 < 0) {
                 alert("输入不合法，请重新输入！");
                 this.cheer1 = "";
                 this.cheer2 = "";
@@ -229,7 +229,7 @@ export default {
                 alert("剩余可投票数不够，请重新分配！");
                 return false;
             }
-            if (this.totle_num == 0) {
+            if (this.totle_num <= 0) {
                 alert("请选择拉拉队投票");
                 return false;
             }
