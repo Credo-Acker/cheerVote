@@ -42,7 +42,7 @@ export default {
                         this.da = response.data.todayNum;
                         this.dachao = response.data.todayNumPercent;
                         this.dui = response.data.rightNum;
-                        this.duichao = response.data.rightNumPercent;
+                        this.duichao = response.data.todayRightNumPercent;
                         this.zhu = response.data.assistance;
                         this.zhuchao = response.data.assPercent;
                     } else {
