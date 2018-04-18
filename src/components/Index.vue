@@ -30,7 +30,6 @@
                             <span class="slogan">{{item.slogan}}</span>
                         </router-link>
                     </li>
-
                 </ul>
             </div>
         </div>
@@ -226,6 +225,7 @@ li {
     position: relative;
     width: 10rem;
     height: 14rem;
+    padding-bottom: 0.3rem;
     overflow: scroll;
 }
 
