@@ -38,9 +38,12 @@
                     <div v-if="android == true">
                         <iframe :src="video" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="100%">  </iframe>
                     </div>
-
-                    <video v-else-if="ios == true" :src="video" controls preload width="100%" height="100%"></video>
-                    <video v-else-if="android == false && ios == false" :src="video" controls preload width="100%" height="100%"></video>
+                    <div v-else-if="ios == true">
+                        <video :src="video" controls preload width="100%" height="100%"></video>
+                    </div>
+                    <div v-else-if="android == false && ios == false">
+                        <iframe :src="video" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="100%">  </iframe>
+                    </div>
                 </div>
             </div>
             <div class="division">
@@ -205,7 +208,7 @@ export default {
                 } else if (this.ios) {
                     this.video = "http://wx.yyeke.com/nodejs/cheerVote/video/" + this.video_List1[response.data.classname];
                 } else {
-                    this.video = this.video_List2[response.data.clclassname];
+                    this.video = this.video_List2[response.data.classname];
                 }
             })
             .catch((error) => {
@@ -219,11 +222,11 @@ export default {
             })
             .then((response) => {
                 this.duiyuan = response.data;
-                for (let i = 0; i < this.duiyuan.length; i++) {
-                    if (!this.duiyuan[i].imgUrl) {
-                        this.duiyuan.splice(i, 1);
-                    }
-                }
+                // for (let i = 0; i < this.duiyuan.length; i++) {
+                //     if (!this.duiyuan[i].imgUrl) {
+                //         this.duiyuan.splice(i, 1);
+                //     }
+                // }
                 this.duiyuanLength = response.data.length;
             })
             .catch((error) => {
