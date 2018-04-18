@@ -145,7 +145,6 @@ export default {
         //获取个人答题榜
         this.$http.get(this.api+'/vote/user/userList')
             .then((response) => {
-                alert(JSON.stringify(response.data));
                 this.first = response.data[0];
                 if (response.data[1]) {
                     this.second = response.data[1];
