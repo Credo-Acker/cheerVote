@@ -80,8 +80,7 @@ export default {
                 .then((response) => {
                     if (response.data.nickname) {
                         this.nickname = response.data.nickname;
-                        this.headImgUrl = response.data.headimgurl;
-                        alert(JSON.stringify(response.data));
+                        this.headImgUrl = response.data.headImgUrl;
                     }
                 })
                 .catch((error) => {

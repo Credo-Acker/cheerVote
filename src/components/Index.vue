@@ -76,17 +76,12 @@ export default {
             .catch((error) => {
                 console.log(error);
             });
-        //获取答题数
-        this.$http.get(this.api+'/vote/user/todayNum')
-            .then((response) => {
-                if (response.data.todayNum > 0) {
-                    this.isRuleMove = true;
-                    this.isRule45 = true;
-                }
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        //用户是否第一次进入页面
+        let rule = getCookie("rule");
+        if (rule > 0) {
+            this.isRuleMove = true;
+            this.isRule45 = true;
+        }
     },
     mounted() {
 

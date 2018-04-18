@@ -13,7 +13,7 @@
                     </wc-slide>
                 </wc-swiper>
                 <div class="className">
-                    {{information.className}}
+                    {{information.classname}}
                 </div>
                 <div class="slogan">
                     {{information.slogan}}
@@ -166,18 +166,17 @@ export default {
                 }
             })
             .then((response) => {
-                alert(JSON.stringify(response.data));
                 this.information = response.data;
                 this.slides.push(this.information.playImg1);
                 this.slides.push(this.information.playImg2);
                 this.slides.push(this.information.playImg3);
                 this.isWeiXin();
                 if (this.android) {
-                    this.video = this.video_List2[response.data.className];
+                    this.video = this.video_List2[response.data.classname];
                 } else if (this.ios) {
-                    this.video = "http://wx.yyeke.com/nodejs/cheerVote/video/" + this.video_List1[response.data.className];
+                    this.video = "http://wx.yyeke.com/nodejs/cheerVote/video/" + this.video_List1[response.data.classname];
                 } else {
-                    this.video = this.video_List2[response.data.clclassName];
+                    this.video = this.video_List2[response.data.clclassname];
                 }
             })
             .catch((error) => {
