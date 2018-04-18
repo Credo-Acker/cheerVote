@@ -73,7 +73,7 @@ export default {
     created() {
         this.$http.get(this.api+'/vote/user/question')
             .then((response) => {
-                if (!response.data.nowNum) {
+                if (response.data.nowNum >= 50) {
                     this.$router.push('/answer');
                 }
                 this.todayNum = response.data.nowNum + 1;

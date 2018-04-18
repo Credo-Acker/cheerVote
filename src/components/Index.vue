@@ -71,6 +71,7 @@ export default {
         //获取首页信息
         this.$http.get(this.api+'/vote/user/cheer_info/firstPage')
             .then((response) => {
+                alert(JSON.stringify(response.headers));
                 this.information = response.data;
             })
             .catch((error) => {
@@ -78,7 +79,6 @@ export default {
             });
         //用户是否第一次进入页面
         let rule = getCookie("rule");
-        alert(rule);
         if (rule > 0) {
             this.isRuleMove = true;
             this.isRule45 = true;
