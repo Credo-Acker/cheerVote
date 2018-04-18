@@ -150,7 +150,7 @@ export default {
             let string = this.$base64.encode(JSON.stringify(data));
             let timestamp = Math.round(new Date().getTime() / 1000);
             let nonce = parseInt(100 * Math.random());
-            let signature = this.$sha1(this.$md5(string) + timestamp.toString() + nonce + 'cheer_vote');
+            let signature = this.$sha1(this.$md5(string) + timestamp + nonce + 'cheer_vote');
             let params = {
                 "string": string,
                 "timestamp": timestamp,
