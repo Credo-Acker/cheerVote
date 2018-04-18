@@ -134,15 +134,10 @@ export default {
         this.$http.get(this.api+'/vote/user/cheer/groupRank')
             .then((response) => {
                 this.teams = response.data;
-                alert(this.teams[0].className);
-                alert(this.teams[1].className);
-                alert(this.teams[2].className);
-                alert(this.teams[3].className);
-                // let item;
-                // for (item of this.teams) {
-                //
-                //     this.classNames.push(JSON.parse(item.className));
-                // }
+                let item;
+                for (item of this.teams) {
+                    this.classNames.push(item.className);
+                }
                 // alert(this.classNames);
             })
             .catch((error) => {
