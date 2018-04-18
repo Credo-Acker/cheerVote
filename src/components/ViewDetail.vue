@@ -166,6 +166,7 @@ export default {
                 }
             })
             .then((response) => {
+                alert(response.data);
                 this.information = response.data;
                 this.slides.push(this.information.playImg1);
                 this.slides.push(this.information.playImg2);

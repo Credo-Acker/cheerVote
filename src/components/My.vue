@@ -80,15 +80,8 @@ export default {
                 .then((response) => {
                     if (response.data.nickname) {
                         this.nickname = response.data.nickname;
-                        if (response.data.headImgurl) {
-                            this.headImgUrl = response.data.headImgurl;
-                        }
-                        if (response.data.headimgUrl) {
-                            this.headImgUrl = response.data.headimgUrl;
-                        }
-                        if (response.data.headimgurl) {
-                            this.headImgUrl = response.data.headimgurl;
-                        }
+                        this.headImgUrl = response.data.headimgurl;
+                        alert(response.data);
                     }
                 })
                 .catch((error) => {
