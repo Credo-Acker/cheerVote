@@ -7,14 +7,14 @@ import 'lib-flexible';
 import axios from 'axios';
 import wcSwiper from './assets/wc-swiper.js';
 import './assets/wc-swiper.css';
-import VueTouch from 'vue-touch';
+// import VueTouch from 'vue-touch';
 import { Base64 } from 'js-base64';
 import md5 from 'md5';
 import sha1 from 'sha1';
 import wcView from 'wc-view';
 import 'wc-view/style.css';
 
-Vue.use(VueTouch, {name: 'v-touch'});
+// Vue.use(VueTouch, {name: 'v-touch'});
 
 Vue.use(wcSwiper);
 Vue.use(wcView);

@@ -67,7 +67,7 @@ export default {
             questionId: "",
             choose: "",
             timer: null,
-            api: "https://wx.yyeke.com/cheer_vote"
+            api: "https://wx.idsbllp.cn/cheer_vote"
         }
     },
     created() {

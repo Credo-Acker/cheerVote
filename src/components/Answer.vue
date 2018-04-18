@@ -85,7 +85,7 @@ export default {
             // hour1: 24,
             // hour2: 8,
             can: true,
-            api: "https://wx.yyeke.com/cheer_vote"
+            api: "https://wx.idsbllp.cn/cheer_vote"
         }
     },
     created() {
