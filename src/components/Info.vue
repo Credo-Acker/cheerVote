@@ -208,9 +208,12 @@ export default {
 .main {
     position: relative;
     width: 10rem;
-    height: 14.9rem;
+    /* height: 14.9rem; */
+    height: calc(100% - 1.33rem);
     background: url(../assets/bg_info.png);
-    background-size: 100% 100%;
+    background-size: 100% 14.9rem;
+    /* background-size: 100% 100%; */
+    background-repeat: no-repeat;
 }
 
 .zhandui {
