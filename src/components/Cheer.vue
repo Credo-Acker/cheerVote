@@ -8,7 +8,7 @@
         <div class="main">
             <ul class="xueyuan">
                 <li class="li_xueyuan" index="2">
-                    <span class="span_xueyuan" :class="{blue: isB(cheer1)}" @click="cheervote(1)">通信学院</span>
+                    <span class="span_xueyuan" :class="{blue: isB(cheer1)}" @click="cheervote(1)">通信与信息工程学院</span>
                     <div class="cheerInput cheerInput1" :class="{visibility: isV(cheer1)}">
                         {{cheer1}}
                     </div>
@@ -26,13 +26,13 @@
                     </div>
                 </li>
                 <li class="li_xueyuan" index="2">
-                    <span class="span_xueyuan" :class="{blue: isB(cheer4)}" @click="cheervote(4)">先进制造工程学院</span>
+                    <span class="span_xueyuan" :class="{blue: isB(cheer4)}" @click="cheervote(4)">先进工程制造学院</span>
                     <div class="cheerInput cheerInput4" :class="{visibility: isV(cheer4)}">
                         {{cheer4}}
                     </div>
                 </li>
                 <li class="li_xueyuan" index="1">
-                    <span class="span_xueyuan" :class="{blue: isB(cheer5)}" @click="cheervote(5)">光电工程学院/国际半导体学院</span>
+                    <span class="span_xueyuan" :class="{blue: isB(cheer5)}" @click="cheervote(5)">光电工程学院/重庆国际半导体学院</span>
                     <div class="cheerInput cheerInput5" :class="{visibility: isV(cheer5)}">
                         {{cheer5}}
                     </div>
@@ -56,7 +56,7 @@
                     </div>
                 </li>
                 <li class="li_xueyuan" index="3">
-                    <span class="span_xueyuan" :class="{blue: isB(cheer9)}" @click="cheervote(9)">经济管理学院</span>
+                    <span class="span_xueyuan" :class="{blue: isB(cheer9)}" @click="cheervote(9)">经济管理学院/现代邮政学院</span>
                     <div class="cheerInput cheerInput9" :class="{visibility: isV(cheer9)}">
                         {{cheer9}}
                     </div>
