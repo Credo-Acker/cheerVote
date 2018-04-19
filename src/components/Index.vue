@@ -224,7 +224,7 @@ li {
 .indexInfowrap {
     position: relative;
     width: 10rem;
-    height: 13.5rem;
+    height: calc(100% - 2rem);
     overflow: scroll;
 }
 
