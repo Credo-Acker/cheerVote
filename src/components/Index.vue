@@ -7,7 +7,7 @@
                 战队:</br>
                 重邮仙女阵线联盟: 光电工程学院重庆国际半导体学院+网络空间安全与信息法学院+传媒艺术学院</br>
                 Mr tony: 通信与信息工程学院+先进制造工程学院+生物信息学院+理学院</br>
-                小猪佩奇战队: 软件工程学院+经济管理学院+国际学院</br>
+                小猪佩奇战队: 软件工程学院+经济管理学院/现代邮政学院+国际学院</br>
                 外动机: 计算机科学与技术学院+自动化学院+外国语学院</br>
                 奖励规则:</br>
                 活动结束后得票第一的战队获得奖金</br>
@@ -139,7 +139,7 @@ li {
     position: relative;
     padding: 0.16rem 0.4rem 0.16rem 0.4rem;
     width: 9.2rem;
-    height: 9.15rem;
+    height: 9.7rem;
     font-size: 0.346rem;
     line-height: 0.55rem;
     cursor: pointer;
@@ -195,7 +195,7 @@ li {
 
 @keyframes ruleMoveUp {
     0% {
-        height: 9.15rem;
+        height: 9.7rem;
     }
     100% {
         height: 0.45rem;
@@ -207,7 +207,7 @@ li {
         height: 0.45rem;
     }
     100% {
-        height: 9.15rem;
+        height: 9.7rem;
     }
 }
 
